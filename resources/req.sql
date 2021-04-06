@@ -1,7 +1,7 @@
---- Requete
+--- Requete : Premiere partie du test
 
 WITH all_sales AS
-( SELECT date, sum(prod_price * prod_qty) as ventes FROM `static-balm-309822.DATASET.transaction`  group by date  order by date asc )
+( SELECT date, sum(prod_price * prod_qty) as ventes FROM `PROJECT.DATASET.transaction`  group by date  order by date asc )
 
 SELECT  FORMAT_DATE("%d/%m/%Y", date) as date, ventes from all_sales where extract (year from date) = 2020
 
@@ -9,19 +9,20 @@ SELECT  FORMAT_DATE("%d/%m/%Y", date) as date, ventes from all_sales where extra
 
 
 
----Requete
+---Requete : Seconde partie du test
 WITH dataset as (
 SELECT
   transact.date, transact.order_id, transact.client_id, transact.prod_price, transact.prod_qty,
   product.product_type, product.product_name
 FROM
-  `static-balm-309822.DATASET.transaction` AS transact
+  `PROJECT.DATASET.transaction` AS transact
 JOIN
-  `static-balm-309822.DATASET.product_nomenclature` AS product
+  `PROJECT.DATASET.product_nomenclature` AS product
 ON
   cast(transact.prod_id as INT64) = product.product_id
 
 where product.product_type in ('MEUBLE', 'DECO')
+and extract (year from date) = 2019
 order by date
 ),
 
