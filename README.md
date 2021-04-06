@@ -1,6 +1,6 @@
 # python-dataflow-csv-json
 
-####I. Quels sont les éléments à considérer pour faire évoluer votre code afin qu’il puisse gérer de grosses volumétries de données (fichiers de plusieurs To ou millions de fichiers par exemple) ? Pourriez-vous décrire les modifications qu’il faudrait apporter, s’il y en a, pour prendre en considération de telles volumétries ?
+#### I. Quels sont les éléments à considérer pour faire évoluer votre code afin qu’il puisse gérer de grosses volumétries de données (fichiers de plusieurs To ou millions de fichiers par exemple) ? Pourriez-vous décrire les modifications qu’il faudrait apporter, s’il y en a, pour prendre en considération de telles volumétries ?
 
 ``
 Les éléments à considerer pour faire evoluer le code pour de grosse volumétrie, serait le nombre total de workers (machines) qui execute le traitement, et la mémoire dont dispose ces machines pour assurer le traitement. 
@@ -10,7 +10,7 @@ Les éléments à considerer pour faire evoluer le code pour de grosse volumétr
 * **Pour la liste total des médicaments (Side Input) qui peut très vite occupé beaucoup de mémoire, on peut assurer sa persistence, en l'enregistrant dans une base de données. De cette maniere au prochain traitement, on le chargerait dans le traitement courant plutot que de le recalculer.**
 
 
-####II. SQL
+#### II. SQL
 
 ```mysql-sqlWITH all_sales AS
 ( SELECT date, sum(prod_price * prod_qty) as ventes FROM `PROJECT.DATASET.transaction`  group by date  order by date asc )
