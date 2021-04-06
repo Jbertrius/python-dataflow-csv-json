@@ -81,9 +81,10 @@ def run(argv=None, save_main_session=True):
                                third_pipeline_name: clinical_trials}
 
     last_join = (pipelines_dictionary_v2
-            | 'Joinv2' >> LeftJoin(source_pipeline_name_v2, drugs_pubmed_data, third_pipeline_name, clinical_trials,
-                                   'drug')
-            )
+                 | 'Joinv2' >> LeftJoin(source_pipeline_name_v2, drugs_pubmed_data, third_pipeline_name,
+                                        clinical_trials,
+                                        'drug')
+                 )
 
     (last_join | 'convert to json' >> beam.Map(json.dumps)
      | 'convert to txt' >> beam.io.WriteToText(known_args.output, num_shards=1)

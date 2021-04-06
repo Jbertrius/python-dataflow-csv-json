@@ -3,7 +3,7 @@ import csv
 
 class DataIngestion:
     """A helper class which contains the logic to translate the file into a
-  format BigQuery will accept."""
+   json format will accept."""
 
     def __init__(self, field_map):
         self.field_map = field_map
@@ -36,6 +36,12 @@ class DataIngestion:
 
 
 def create_key_value_pair(pubmed, druglist, key):
+    """
+
+    :type pubmed: dict
+    :type druglist: list - list of drugs name
+    :type key: string
+    """
     for drugname in druglist:
         if drugname in pubmed[key].lower():
             pubmed['drug'] = drugname

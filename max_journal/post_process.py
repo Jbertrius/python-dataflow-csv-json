@@ -4,8 +4,12 @@ from collections import Counter
 path = '../resources/test.json-00000-of-00001'
 
 
-def journal_max(path):
-    f = open(path, 'r')
+def journal_max(file_path):
+    """
+
+    :type file_path: relative path to the file
+    """
+    f = open(file_path, 'r')
 
     data = f.readlines()
 
