@@ -37,15 +37,15 @@ def pipeline_options_def(argv):
 
         '--runner=DirectRunner',
 
-        '--project=SET_YOUR_PROJECT_ID_HERE',
+        # '--project=SET_YOUR_PROJECT_ID_HERE',
 
-        '--region=SET_REGION_HERE',
+        # '--region=SET_REGION_HERE',
 
-        '--staging_location=gs://YOUR_BUCKET_NAME/AND_STAGING_DIRECTORY',
+        # '--staging_location=gs://YOUR_BUCKET_NAME/AND_STAGING_DIRECTORY',
 
-        '--temp_location=gs://YOUR_BUCKET_NAME/AND_TEMP_DIRECTORY',
+        # '--temp_location=gs://YOUR_BUCKET_NAME/AND_TEMP_DIRECTORY',
 
-        '--job_name=your-wordcount-job',
+        '--job_name=csv-to-json',
     ])
 
     return PipelineOptions(pipeline_args), known_args

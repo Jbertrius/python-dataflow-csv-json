@@ -16,17 +16,6 @@ class DataIngestion:
             state_abbreviation,gender,year,name,count_of_babies,dataset_created_date
                 example string_input: KS,F,1923,Dorothy,654,11/28/2016
         Returns:
-            A dict mapping BigQuery column names as keys to the corresponding value
-            parsed from string_input.  In this example, the data is not transformed, and
-            remains in the same format as the CSV.  There are no date format transformations.
-                example output:
-                      {'state': 'KS',
-                       'gender': 'F',
-                       'year': '1923-01-01', <- This is the BigQuery date format.
-                       'name': 'Dorothy',
-                       'number': '654',
-                       'created_date': '11/28/2016'
-                       }
         """
 
         # Use a CSV Reader which can handle quoted strings etc.
